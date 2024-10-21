@@ -79,7 +79,7 @@ CONFIG_SCHEMA = cv.All(
             ),
              cv.Optional(CONF_WH_BATTERY_DISCHAGE): sensor.sensor_schema(
                 unit_of_measurement=UNIT_WATT_HEURE,
-                icon=ICON_BATTERY,
+                icon=ICON_PERCENT,
                 accuracy_decimals=2,
                 device_class=DEVICE_CLASS_BATTERY,
                 state_class=STATE_CLASS_MEASUREMENT,
