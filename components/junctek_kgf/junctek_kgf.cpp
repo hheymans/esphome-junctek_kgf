@@ -130,7 +130,8 @@ void JuncTekKGF::handle_status(const char* buffer)
   }
   if (temperature_)
     this->temperature_->publish_state(temperature);
-
+  if (wh_battery_discharge_sensor_)
+    this->wh_battery_discharge_sensor_->publish_state(wattHourDischarge); 
   this->last_stats_ = esphome::millis();
 }
 
