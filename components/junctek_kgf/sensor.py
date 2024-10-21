@@ -29,8 +29,8 @@ from esphome.const import (
     DEVICE_CLASS_BATTERY,
     DEVICE_CLASS_TEMPERATURE,
 )
-
-
+CONF_WH_BATTERY_DISCHAGE="wh_discharge"
+UNIT_WATT_HEURE="WH"
 
 DEPENDENCIES = ["uart"]
 
@@ -40,6 +40,7 @@ TYPES = [
     CONF_VOLTAGE,
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
+    CONF_WH_BATTERY_DISCHAGE,
     CONF_TEMPERATURE,
 ]
 
@@ -72,6 +73,13 @@ CONFIG_SCHEMA = cv.All(
                 unit_of_measurement=UNIT_PERCENT,
                 icon=ICON_PERCENT,
                 accuracy_decimals=1,
+                device_class=DEVICE_CLASS_BATTERY,
+                state_class=STATE_CLASS_MEASUREMENT,
+            ),
+             cv.Optional(CONF_WH_BATTERY_DISCHAGE): sensor.sensor_schema(
+                unit_of_measurement=UNIT_WATT_HEURE,
+                icon=ICON_BATTERY,
+                accuracy_decimals=2,
                 device_class=DEVICE_CLASS_BATTERY,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
